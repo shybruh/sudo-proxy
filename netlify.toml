@@ -1,6 +1,8 @@
 [build]
-command = "mkdir -p dist && pnpm build:netlify"
-publish = ".netlify"
-edge_functions = ".netlify/functions"
-[functions]
-  directory = ".netlify/functions"
+  command = "mkdir -p dist && NITRO_PRESET=netlify npm run build"
+  publish = ".netlify"
+  edge_functions = ".netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "18"
+  NITRO_PRESET = "netlify"
